@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from app.database import Base
@@ -21,7 +21,7 @@ class CheckResult(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     service_id = Column(Integer, ForeignKey("services.id"), nullable=False)
-    checked_at = Column(DateTime, default=datetime.now(datetime.timezone.utc), nullable=False)
+    checked_at = Column(DateTime, default=lambda: datetime.datetime.now(timezone.utc), nullable=False)
     http_status = Column(Integer, nullable=True)
     latency_ms = Column(Float, nullable=True)
     actual_version = Column(String, nullable=True)

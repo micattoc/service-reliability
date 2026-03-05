@@ -18,21 +18,5 @@ services:
     ports:
       - "5433:5432"
 
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
-    environment:
-      DATABASE_URL: postgresql://service_user:servicePassword@db:5433/reliability
-      POLL_INTERVAL_SECONDS: 30
-      ALERT_CONSECUTIVE_FAILURES: 3
-      WEBHOOK_URL: ""
-    depends_on:
-      db:
-        condition: service_healthy
-    restart: on-failure
-
 volumes:
   postgres_data:
