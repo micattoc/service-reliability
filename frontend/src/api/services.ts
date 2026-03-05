@@ -10,13 +10,3 @@ export async function getServicesByEnvironment(): Promise<EnvironmentGroup[]> {
   const response = await client.get<EnvironmentGroup[]>('/api/services/by-environment');
   return response.data;
 }
-
-/*
-export async function getServiceHistory(
-  serviceId: number,
-  limit = 5
-): Promise<ServiceHistory> {
-  const response = await client.get<ServiceHistory>(`/api/services/${serviceId}/history`, { params: { limit } });
-  return response.data;
-}
-*/

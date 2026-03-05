@@ -21,13 +21,6 @@ export interface ServiceStatus {
   latest_check: CheckResult | null;
 }
 
-/*
-export interface ServiceHistory {
-  service: ServiceStatus;
-  history: CheckResult[];
-}
-*/
-
 export interface EnvironmentGroup {
   environment: string;
   services: ServiceStatus[];

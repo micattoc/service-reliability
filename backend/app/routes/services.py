@@ -65,35 +65,3 @@ def get_by_environment(db: Session = Depends(get_db)):
         EnvironmentGroupSchema(environment=env, services=svcs)
         for env, svcs in groups.items()
     ]
-
-
-"""
-@router.get("/{service_id}/history", response_model=ServiceHistorySchema)
-def get_service_history(service_id: int, limit: int = 20, db: Session = Depends(get_db)):
-
-    service = db.query(Service).filter(Service.id == service_id).first()
-    if not service:
-        raise HTTPException(status_code=404, detail="Service not found")
-
-    history = (
-        db.query(CheckResult)
-        .filter(CheckResult.service_id == service_id)
-        .order_by(desc(CheckResult.checked_at))
-        .limit(limit)
-        .all()
-    )
-
-    latest = history[0] if history else None
-
-    return ServiceHistorySchema(
-        service=ServiceStatusSchema(
-            id=service.id,
-            name=service.name,
-            url=service.url,
-            environment=service.environment,
-            expected_version=service.expected_version,
-            latest_check=CheckResultSchema.model_validate(latest) if latest else None,
-        ),
-        history=[CheckResultSchema.model_validate(h) for h in history],
-    )
-"""

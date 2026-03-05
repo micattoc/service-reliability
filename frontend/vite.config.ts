@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // In local dev, Vite forwards /api/* to FastAPI so CORS is irrelevant
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
