@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
@@ -18,10 +17,9 @@ const INDICATOR_COLOR: Record<string, 'success' | 'warning' | 'error' | 'default
 
 interface Props {
   service: ServiceStatus;
-  onSelect: (id: number) => void;
 }
 
-export function ServiceCard({ service, onSelect }: Props) {
+export function ServiceCard({ service }: Props) {
   const check = service.latest_check;
   const isUp = check?.is_up ?? false;
 
@@ -30,8 +28,6 @@ export function ServiceCard({ service, onSelect }: Props) {
       variant="outlined"
       sx={{ borderLeft: 4, borderLeftColor: isUp ? 'success.main' : 'error.main' }}
     >
-      <CardActionArea onClick={() => onSelect(service.id)}>
-
         <CardContent>
 
           {/* Header row */}
@@ -40,6 +36,7 @@ export function ServiceCard({ service, onSelect }: Props) {
               <Typography variant="subtitle1" fontWeight={600} noWrap>
                 {service.name}
               </Typography>
+
               <Tooltip title={service.url}>
                 <Typography variant="caption" color="text.secondary" noWrap display="block">
                   {service.url}
@@ -53,19 +50,17 @@ export function ServiceCard({ service, onSelect }: Props) {
               size="small"
               sx={{ fontWeight: 700, flexShrink: 0 }}
             />
-
           </Stack>
 
           <Divider sx={{ my: 1.5 }} />
 
-          {/* Statistics row */}
+          {/* Stats row */}
           {check ? (
             <Stack direction="row" spacing={3}>
               <Box>
                 <Typography variant="caption" color="text.secondary" textTransform="uppercase">
                   Latency
                 </Typography>
-
                 <Typography variant="body2" fontWeight={600}>
                   {check.latency_ms != null ? `${check.latency_ms.toFixed(0)} ms` : '—'}
                 </Typography>
@@ -128,11 +123,10 @@ export function ServiceCard({ service, onSelect }: Props) {
                 Last checked {new Date(check.checked_at).toLocaleTimeString()}
               </Typography>
             )}
+            
           </Stack>
 
         </CardContent>
-
-      </CardActionArea>
     </Card>
   );
 }
