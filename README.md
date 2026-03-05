@@ -14,6 +14,7 @@ API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ### List of Monitoring Services
 Modifiable configuration file at: ```backend/services.yaml```
+Feel free to modify any of the fields to see how it displays on the UI.
 
 ---
 
