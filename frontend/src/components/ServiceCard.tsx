@@ -120,7 +120,7 @@ export function ServiceCard({ service }: Props) {
 
             {check && (
               <Typography variant="caption" color="text.disabled">
-                Last checked {new Date(check.checked_at).toLocaleTimeString()}
+                Last checked {new Date(check.checked_at + 'Z').toLocaleTimeString()}
               </Typography>
             )}
             
