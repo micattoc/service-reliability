@@ -9,7 +9,6 @@ from app.models import CheckResult, Service
 from app.schemas import (
     CheckResultSchema,
     EnvironmentGroupSchema,
-    ServiceHistorySchema,
     ServiceStatusSchema,
 )
 

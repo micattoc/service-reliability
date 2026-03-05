@@ -29,7 +29,7 @@ export default function App() {
   const fetchServices = useCallback(() => {
     getAllServices()
       .then((data) => {
-        setServices(data);
+        setServices(Array.isArray(data) ? data : []);
         setLastUpdated(new Date());
         setError(null);
       })
