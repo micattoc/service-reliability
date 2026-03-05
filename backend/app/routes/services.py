@@ -68,9 +68,9 @@ def get_by_environment(db: Session = Depends(get_db)):
     ]
 
 
+"""
 @router.get("/{service_id}/history", response_model=ServiceHistorySchema)
 def get_service_history(service_id: int, limit: int = 20, db: Session = Depends(get_db)):
-    """Full check history for one service, ordered by newest first."""
 
     service = db.query(Service).filter(Service.id == service_id).first()
     if not service:
@@ -97,3 +97,4 @@ def get_service_history(service_id: int, limit: int = 20, db: Session = Depends(
         ),
         history=[CheckResultSchema.model_validate(h) for h in history],
     )
+"""

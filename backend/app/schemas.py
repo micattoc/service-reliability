@@ -27,11 +27,11 @@ class ServiceStatusSchema(BaseModel):
 
     model_config = {"from_attributes": True}
 
-
+"""
 class ServiceHistorySchema(BaseModel):
     service: ServiceStatusSchema
     history: list[CheckResultSchema]
-
+"""
 
 class EnvironmentGroupSchema(BaseModel):
     environment: str
