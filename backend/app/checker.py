@@ -42,7 +42,7 @@ async def check_service(url: str) -> ProbeResult:
                 indicator = body.get("status", {}).get("indicator")
 
             except Exception:
-                # Response is not JSON, soversion stays null 888
+                # Response is not JSON, so version stays null 888
                 pass
 
         return ProbeResult(

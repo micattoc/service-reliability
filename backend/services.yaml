@@ -5,20 +5,20 @@
 
 - name: Slack
   url: https://slack-status.com/api/v2.0.0/current
-  environment: production
+  environment: staging
   expected_version: koppyqt26sho
 
 - name: Discord
   url: https://discordstatus.com/api/v2/status.json
   environment: production
-  expected_version: srhpyqt94yxb
+  expected_version: 44jdoei
 
 - name: DigitalOcean
   url: https://status.digitalocean.com/api/v2/status.json
-  environment: production
+  environment: staging
   expected_version: w4cz49tckxhp
 
 - name: HTTPBin Failure
   url: https://httpbin.org/status/500
-  environment: staging
+  environment: production
   expected_version: zxh24sp904nmo

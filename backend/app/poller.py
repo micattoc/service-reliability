@@ -4,6 +4,7 @@ import os
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from sqlalchemy.orm import Session
 
+from app.alerting import check_and_alert
 from app.checker import check_service
 from app.config import load_services
 from app.database import SessionLocal
@@ -63,6 +64,8 @@ async def poll_all_services() -> None:
 
             db.add(check_record)
             db.commit()
+
+            await check_and_alert(db, service)
 
     except Exception as exc:
         print(f"[POLLER] Unexpected error during poll cycle: {exc}")
