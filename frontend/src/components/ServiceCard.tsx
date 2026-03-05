@@ -105,12 +105,23 @@ export function ServiceCard({ service }: Props) {
           {check?.is_drifted && (
             <Box sx={{ mt: 1.5 }}>
               <Chip
-                label={`⚠ Version drift — expected ${service.expected_version}, got ${check.actual_version}`}
+                label={`⚠ Version drift!`}
                 color="warning"
                 size="small"
                 variant="outlined"
               />
+              {`Expected ${service.expected_version}, got ${check.actual_version}`}
             </Box>
+          )}
+
+          {check?.is_legacy && (
+            <Chip
+              label="Legacy server"
+              size="small"
+              variant="outlined"
+              color="default"
+              sx={{ mt: 1.5 }}
+            />
           )}
 
           {/* Footer */}

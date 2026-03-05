@@ -13,6 +13,7 @@ class CheckResultSchema(BaseModel):
     indicator: Optional[str]
     is_drifted: bool
     is_up: bool
+    is_legacy: bool
 
     model_config = {"from_attributes": True}
 

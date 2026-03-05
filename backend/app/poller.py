@@ -60,6 +60,7 @@ async def poll_all_services() -> None:
                 indicator=result.indicator,
                 is_drifted=is_drifted,
                 is_up=result.is_up,
+                is_legacy=result.is_legacy,
             )
 
             db.add(check_record)

@@ -13,6 +13,7 @@ class ProbeResult:
     actual_version: Optional[str]
     indicator: Optional[str]
     is_up: bool
+    is_legacy: bool
     checked_at: datetime
 
 
@@ -31,19 +32,25 @@ async def check_service(url: str) -> ProbeResult:
 
         actual_version: Optional[str] = None
         indicator: Optional[str] = None
+        is_legacy = False
 
         if is_up:
             try:
                 body = response.json()
-                # Extract page.id as the version fingerprint
-                actual_version = body.get("page", {}).get("id")
-
-                # Extract status.indicator for display (none/minor/major/critical)
-                indicator = body.get("status", {}).get("indicator")
-
             except Exception:
-                # Response is not JSON, so version stays null 888
-                pass
+                # Response is not JSON, so indicates that service is potentially legacy
+                is_legacy = True
+            else:
+                if isinstance(body, dict):
+                    page = body.get("page")
+                    actual_version = page.get("id") if isinstance(page, dict) else None
+
+                    status = body.get("status")
+                    indicator = status.get("indicator") if isinstance(status, dict) else None
+                else:
+                    # Response is non-dict JSON response, so indicates that service is potentially legacy
+                    is_legacy = True
+
 
         return ProbeResult(
             http_status=http_status,
@@ -51,6 +58,7 @@ async def check_service(url: str) -> ProbeResult:
             actual_version=actual_version,
             indicator=indicator,
             is_up=is_up,
+            is_legacy=is_legacy,
             checked_at=checked_at,
         )
 

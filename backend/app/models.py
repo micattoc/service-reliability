@@ -28,5 +28,6 @@ class CheckResult(Base):
     indicator = Column(String, nullable=True)
     is_drifted = Column(Boolean, default=False, nullable=False)
     is_up = Column(Boolean, default=False, nullable=False)
+    is_legacy = Column(Boolean, default=False, nullable=False)
 
     service = relationship("Service", back_populates="check_results")

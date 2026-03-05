@@ -9,6 +9,7 @@ export interface CheckResult {
   indicator: string | null;
   is_drifted: boolean;
   is_up: boolean;
+  is_legacy: boolean;
 }
 
 export interface ServiceStatus {
