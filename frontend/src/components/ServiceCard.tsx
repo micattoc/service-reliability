@@ -6,6 +6,10 @@ import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import type { ServiceStatus } from '../types';
 
 const INDICATOR_COLOR: Record<string, 'success' | 'warning' | 'error' | 'default'> = {
@@ -103,15 +107,21 @@ export function ServiceCard({ service }: Props) {
 
           {/* Version drift banner */}
           {check?.is_drifted && (
-            <Box sx={{ mt: 1.5 }}>
-              <Chip
-                label={`⚠ Version drift!`}
-                color="warning"
-                size="small"
-                variant="outlined"
-              />
-              {`Expected ${service.expected_version}, got ${check.actual_version}`}
-            </Box>
+            <Accordion disableGutters elevation={0} sx={{ mt: 1.5, border: '1px solid', borderColor: 'warning.main', borderRadius: 1 }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="caption" color="warning.dark" fontWeight={600}>
+                  ⚠ Version drift detected
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="caption" display="block">
+                  Expected: <code>{service.expected_version}</code>
+                </Typography>
+                <Typography variant="caption" display="block">
+                  Got: <code>{check.actual_version}</code>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           )}
 
           {check?.is_legacy && (
