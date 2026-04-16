@@ -3,7 +3,6 @@
 Periodically checks web service endpoints, records availability, latency, and version identity, and surfaces the results on a live dashboard.
 
 <img width="2869" height="1254" alt="Screenshot 2026-04-16 073024" src="https://github.com/user-attachments/assets/5cf0d159-28e8-4d00-a046-6f36b1a80626" />
-<img width="1889" height="988" alt="Screenshot 2026-04-16 073038" src="https://github.com/user-attachments/assets/534f4602-a9b6-4bf0-91fc-b068d3924159" />
 
 ## Quickstart
 
@@ -12,12 +11,15 @@ Periodically checks web service endpoints, records availability, latency, and ve
 docker-compose up --build
 ```
 
-Open [http://localhost:8000](http://localhost:8000).  
+Open [http://localhost:8000](http://localhost:8000)
 API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ### List of Monitoring Services
 Modifiable configuration file at: ```backend/services.yaml```
 Feel free to modify any of the fields to see how it displays on the UI.
+
+View the version drift by clicking on the drift alert for service:
+<img width="630" height="330" alt="Screenshot 2026-04-16 073038" src="https://github.com/user-attachments/assets/534f4602-a9b6-4bf0-91fc-b068d3924159" />
 
 ---
 
