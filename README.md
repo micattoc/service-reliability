@@ -11,9 +11,9 @@ Periodically checks web service endpoints, records availability, latency, and ve
 docker-compose up --build
 ```
 
-Open [http://localhost:8000](http://localhost:8000)
+Open [http://localhost:8000](http://localhost:8000)   | 
 API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
-
+<br><br>
 ### List of Monitoring Services
 Modifiable configuration file at: ```backend/services.yaml```
 Feel free to modify any of the fields to see how it displays on the UI.
