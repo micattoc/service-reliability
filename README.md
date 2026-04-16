@@ -17,8 +17,9 @@ API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 ### List of Monitoring Services
 Modifiable configuration file at: ```backend/services.yaml```
 Feel free to modify any of the fields to see how it displays on the UI.
+<br><br>
+<p align="center">View the <b>version drift</b> by clicking on the drift alert for service:</p>
 
-View the version drift by clicking on the drift alert for service:
 <img width="945" height="495" alt="Screenshot 2026-04-16 073038" src="https://github.com/user-attachments/assets/534f4602-a9b6-4bf0-91fc-b068d3924159" />
 
 ---
