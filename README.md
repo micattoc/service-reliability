@@ -2,7 +2,7 @@
 
 Periodically checks web service endpoints, records availability, latency, and version identity, and surfaces the results on a live dashboard.
 
-<img width="2869" height="1254" alt="Screenshot 2026-04-16 073024" src="https://github.com/user-attachments/assets/5cf0d159-28e8-4d00-a046-6f36b1a80626" />
+<img width="1435" height="627" alt="Screenshot 2026-04-16 073024" src="https://github.com/user-attachments/assets/3818638a-8e56-4a6b-a555-6101e5de3739" />
 
 ## Quickstart
 
