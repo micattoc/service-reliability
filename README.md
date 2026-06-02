@@ -1,6 +1,6 @@
 # Service Reliability Monitor
 
-Periodically checks web service endpoints, records availability, latency, and version identity, and surfaces the results on a live dashboard.
+Periodically checks web service endpoints, recording availability, latency, and version identity while surfacing results on a live dashboard.
 
 #### Built using:
 [![FastAPI](https://img.shields.io/badge/-Fast--API-2f988a?style=for-the-badge)](https://fastapi.tiangolo.com)
