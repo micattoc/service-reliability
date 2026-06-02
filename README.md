@@ -2,18 +2,29 @@
 
 Periodically checks web service endpoints, records availability, latency, and version identity, and surfaces the results on a live dashboard.
 
+#### Built using:
+[![FastAPI](https://img.shields.io/badge/-Fast--API-2f988a?style=for-the-badge)](https://fastapi.tiangolo.com)
+[![Docker](https://img.shields.io/badge/-Docker-375efb?style=for-the-badge)](https://www.docker.com)
+[![React](https://img.shields.io/badge/-React-8acff3?style=for-the-badge)](https://react.dev)
+[![Material UI](https://img.shields.io/badge/-Material--UI-2d87ce?style=for-the-badge)](https://mui.com/material-ui)
+
+
 <img width="1435" height="627" alt="Screenshot 2026-04-16 073024" src="https://github.com/user-attachments/assets/3818638a-8e56-4a6b-a555-6101e5de3739" />
 
 ## Quickstart
 
-### Docker (for Windows)
+### Build Docker image
+For Windows:
 ```bash
 docker-compose up --build
 ```
 
-Open [http://localhost:8000](http://localhost:8000)   | 
-API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
-<br><br>
+#### Open on browser: [http://localhost:8000](http://localhost:8000) 
+
+#### View API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+<br>
+
 ### List of Monitoring Services
 Modifiable configuration file at: ```backend/services.yaml```
 <br><br>
@@ -46,4 +57,13 @@ This VPC requires peering connections to both Staging and Production VPCs to ens
 The app container can run behind an Application Load Balancer with a `/api/services/` health path. AWS CloudWatch Synthetics Canary can be setup to check the Application Load Balancer. If the application goes down, CloudWatch will alert the infrastructure team.
 
 ---
-#### Engineered via AI-assisted Software Development Lifecycle (SDLC)
+<p align="center">
+    Developed by
+</p>
+
+<div align="center"> 
+
+[![Author](https://img.shields.io/badge/-Sophia--Halapchuk-9ae0d0?style=flat-square)](https://www.linkedin.com/in/sophia-halapchuk)
+[![Author](https://img.shields.io/badge/-@micattoc-eebc81?style=flat-square)](https://github.com/micattoc)
+
+</div>
